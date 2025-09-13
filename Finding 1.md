@@ -1,11 +1,11 @@
-Finding Report: Missing Staleness Checks in Chainlink Oracle Implementation
+## Finding Report: Missing Staleness Checks in Chainlink Oracle Implementation
 
-Finding Description
+## Finding Description
 
 
 The MorphoChainlinkOracleV2 contract contains a critical vulnerability where it fails to validate the freshness of price data returned by Chainlink feeds. The getPrice() function extracts only the answer field from latestRoundData() calls while ignoring the updatedAt timestamp and other critical return values. This allows stale prices to be used in price calculations, violating the fundamental security assumption that oracle prices are current and reliable.
 
-Finding Impact
+## Finding Impact
 
 
 
@@ -48,7 +48,7 @@ Lending protocols may calculate incorrect LTV ratios
 Systemic Risk: A single stale feed can compromise the entire price calculation, as there are no fallback mechanisms or freshness validation.
 
 
-Proof Of concept:
+## Proof Of concept:
 
 So I created this contract to test for stale price possibilities:
 
@@ -703,7 +703,7 @@ Overcollateralization if prices are too high
 Potential oracle manipulation attacks
 
 
-Remediation:
+## Remediation:
 Add Price Sanity Checks:
 
 // Add to getPrice() function after getting all prices
@@ -727,6 +727,7 @@ require(
 
 
 return calculatedPrice;
+
 
 
 
