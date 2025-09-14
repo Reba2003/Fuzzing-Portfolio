@@ -2,12 +2,9 @@
 
 ## Finding Description
 
-
 The MorphoChainlinkOracleV2 contract contains a critical vulnerability where it fails to validate the freshness of price data returned by Chainlink feeds. The getPrice() function extracts only the answer field from latestRoundData() calls while ignoring the updatedAt timestamp and other critical return values. This allows stale prices to be used in price calculations, violating the fundamental security assumption that oracle prices are current and reliable.
 
 ## Finding Impact
-
-
 
 High Severity - This vulnerability impacts not only the oracle itself but all integrated protocols:
 
@@ -727,6 +724,7 @@ require(
 
 
 return calculatedPrice;
+
 
 
 
