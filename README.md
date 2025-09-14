@@ -42,6 +42,7 @@ So I created this contract to test for stale price possibilities:
 https://github.com/Reba2003/Fuzzing-Portfolio/blob/main/EchidnaOracleTest.sol#L1-L315
 
 And this was the output:
+
 https://github.com/Reba2003/Fuzzing-Portfolio/blob/main/Finding%201_1.png
 
 https://github.com/Reba2003/Fuzzing-Portfolio/blob/main/Finding%201_10.png
